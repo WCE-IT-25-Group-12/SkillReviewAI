@@ -14,7 +14,7 @@ const ChatMessage = (props) => {
           }
           alt="profile"
         />
-        <p>{text}</p>
+        <p className="msgg">{text}</p>
       </div>
     </>
   );

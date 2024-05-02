@@ -121,7 +121,12 @@ const Chat = ({ questions }) => {
             onChange={(e) => setFormValue(e.target.value)}
             placeholder="Type or record your answer here!"
           />
-          <button type="button" onClick={handleRecord} className="btn">
+          <button
+            type="button"
+            onClick={handleRecord}
+            className="btn"
+            style={{ backgroundColor: listening ? "red" : "#05b31c" }}
+          >
             {listening ? "stop" : "start"}
           </button>
           <button type="submit" disabled={!formValue} className="btn">
