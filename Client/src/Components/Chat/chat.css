@@ -27,6 +27,22 @@ main {
   box-sizing: border-box;
 }
 
+.heading-cont {
+  width: 50vw;
+  text-align: center;
+  font-size: 2.5rem;
+  color: #282c34;
+  background-color: "#cdcbff";
+  margin: 1rem 0 1rem 0;
+}
+
+.innner {
+  background-color: #cdcbff;
+  padding: 0 5rem 3rem 5rem;
+  margin-top: 1.6rem;
+  border-radius: 1rem;
+}
+
 main::-webkit-scrollbar {
   width: 0.25rem;
 }
@@ -53,7 +69,7 @@ main::-webkit-scrollbar-thumb {
 input {
   line-height: 1.5;
   width: 100%;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   background: rgb(58, 58, 58);
   color: white;
   outline: none;
@@ -124,4 +140,11 @@ img {
 
 .text {
   color: black;
+}
+
+.btn {
+  border-radius: 0;
+  border-right: 1px solid #282c34;
+  border-top: 1px solid #282c34;
+  border-bottom: 1px solid #282c34;
 }
