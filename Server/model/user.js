@@ -22,7 +22,7 @@ const userSchema =new mongoose.Schema({
     //     required:[true,'Please enter your password'],
     //     minlength:[6,'Your password must be longer than 6 characters'],
     // }
-})
+},{timestamps:true})
 
 // //Encrypting password before saving user
 // userSchema.pre('save',async function(next){
@@ -43,6 +43,5 @@ const userSchema =new mongoose.Schema({
 //         expiresIn:process.env.JWT_EXPIRES_TIME
 //     });
 // } 
-
 
 module.exports = mongoose.model('User',userSchema);

@@ -17,11 +17,12 @@ body {
   align-items: center;
   background: #ffffff;
   width: 25vw;
-  height: 45vh;
+  height: 50vh;
   padding: 1rem;
   text-align: start;
   border-radius: 1rem;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
 }
 .details input {
   font-family: "Roboto", sans-serif;

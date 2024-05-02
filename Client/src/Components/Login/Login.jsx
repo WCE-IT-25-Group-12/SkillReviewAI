@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './Login.css';
-import { GoogleLogin } from '@react-oauth/google';
-import { redirect, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import buttonimg from '../../assets/google.png';
 
 const Login = () => {
-  const [isLogin, setIsLogin] = useState(true); // State to track whether login or signup form is displayed
+  const [isLogin, setIsLogin] = useState(true); 
 
   const toggleForm = () => {
     setIsLogin(!isLogin);
@@ -23,7 +23,7 @@ const Login = () => {
     <>
       <div className='main'>
         <div className='heading'>
-          <div class="nine">
+          <div className="nine">
             <h1>An Ai Platform<span>For Mock Interview Experience</span></h1>
           </div>
           <div className="three"><h1>SkillReviews AI</h1></div>
@@ -50,27 +50,19 @@ const Login = () => {
                 <p className='message'>Already have an account? <a onClick={toggleForm} style={{cursor: "pointer"}}> Sign in</a></p>
               </form>
             )}
-            {/* <button onClick={loginwithgoogle}Google Login></button> */}
-            <div className="loginit">
-              <GoogleLogin
-                clientId="89065240495-k8dibo10ng1jfh28mff9eeldjnh9opgp.apps.googleusercontent.com"
-                render={(renderProps) => (
-                  <button onClick={renderProps.onClick} disabled={renderProps.disabled}>
-                    Google Login
-                  </button>
-                )}
-                onSuccess={(credentialResponse) => {
-                  // Handle success
-                  navigate('/details');
-                  console.log(credentialResponse);
-                }}
-                onError={() => {
-                  // Handle error
-                  console.log('Login Failed');
-                }}
-              />
-
+            <div className='google'> 
+                <button className='g-sign-in-button' onClick={loginwithgoogle}>
+                  <div className="content-wrapper">
+                    <div className="logo-wrapper">
+                        <img src={buttonimg} alt="" />
+                    </div>
+                    <span className="text-container">
+                        <span>Sign in with Google</span>
+                    </span>
+                  </div>
+                </button>
             </div>
+
           </div>
         </div>
       </div>

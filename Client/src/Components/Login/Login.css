@@ -187,7 +187,7 @@ body{
   font-size: 14px;
   border-radius: 0.5rem;
 }
-.form button {
+.login-form button {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
@@ -251,4 +251,64 @@ body{
 }
 .signup-form input{
   padding: 1.5rem 1rem;
+}
+
+.google {
+  margin-top: 1.5rem;
+}
+
+.g-sign-in-button {
+  position: relative;
+  display: inline-block;
+  width: 240px;
+  height: 50px;
+  background-color: #4285f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .25);
+  transition: background-color .218s, border-color .218s, box-shadow .218s;
+}
+.logo-wrapper img{
+  padding-top: 5px;
+  width: 20px;
+  height:20px;
+}
+.g-sign-in-button:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 3px 3px rgba(66, 133, 244, .3);
+  box-shadow: 0 0 3px, 3px, rgba(66, 133, 244, .3);
+}
+
+
+.g-sign-in-button .logo-wrapper {
+  /* padding: 12px;  */
+  background: #fff;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 5px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.g-sign-in-button .text-container {
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: .21px;
+  font-size: 16px;
+  line-height: 48px;
+  vertical-align: middle;
+  border: none;
+  display: inline-block;
+  text-align: center;
+  width: 172px; /* Adjusted width */
+  overflow: hidden; /* Added overflow to prevent text overflow */
+  white-space: nowrap; /* Prevent text wrapping */
+  text-overflow: ellipsis; /* Show ellipsis for overflowed text */
+  padding:0;
+  margin-top: -0.5rem;
+}
+
+.content-wrapper{
+  display: flex;
+  padding: 0;
 }

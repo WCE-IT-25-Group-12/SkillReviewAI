@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect,useState } from "react";
 import "./Form.css";
 import axios from "axios";
 import Chat from "../Chat/Chat";
-// import IMG from '../../assets/meta_.png';
 
 const Form = () => {
   const [name, setName] = useState(""); 
@@ -11,6 +10,22 @@ const Form = () => {
   const [desciption, setDescription] = useState("");
   const [startInterview, setStartIntview] = useState(false);
   const [questionSet,SetquestionSet] = useState([]);
+
+  const [userdata,setUserdata] = useState({}); 
+
+  const getUser = async() => {
+    try{
+        const response = await axios.get("http://localhost:5000/login/success",{withCredentials:true})
+        // console.log("response",response)
+        setUserdata(response.data).user
+    }catch(err){
+      console.log(err)
+    }
+  }
+  
+  useEffect(()=>{
+    getUser()
+  },[])
 
   const sendRequest = async () => {
     const body = { companyName: company, position: role, desciption };

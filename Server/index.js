@@ -6,7 +6,8 @@ const db=require('./db/connect')
 const userdb = require('./model/user')
 const session = require('express-session')
 const passport = require('passport')
-const OauthStrategy = require('passport-google-oauth20').Strategy
+var GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
+
 
 const GenAI = require('./utils/GenAI');
 const user = require('./model/user');
@@ -27,20 +28,23 @@ app.use(session({
 }))
 
 app.use(passport.initialize());
-app.use(passport.session())
+app.use(passport.session());
 
 passport.use(
-	new OauthStrategy({
-		clientID: process.env.clientId,
-		clientSecret: process.env.clientSecret,
+	new GoogleStrategy({
+		clientID:process.env.clientId,
+		clientSecret:process.env.clientSecret,
 		callbackURL:"/auth/google/callback",
-		scope:["profile","email"]
+		scope:['email','profile'],
+		passReqToCallback:true
 	},
-	async(accessToken,refreshToken,profile,done)=>{
-		console.log(profile)
+	async(request,accessToken,refreshToken,profile,done)=>{
+		// console.log(profile)
+		console.log(accessToken)
+		console.log(refreshToken)
 		try{
 			let user = await userdb.findOne({googleId:profile.id})
-			console.log(user)
+			// console.log(user)
 			if(!user){
 				user = new userdb({
 					googleId:profile.id,
@@ -49,6 +53,12 @@ passport.use(
 
 				})
 				await user.save()
+				request.logIn(user, (err) => {
+					if (err) {
+					  return done(err);
+					}
+					return done(null, user);
+				});
 				console.log("saved")
 				return done(null,user)
 			}
@@ -61,19 +71,39 @@ passport.use(
 	)	
 )
 
-passport.serializeUser((user,done)=>{
-	done(null,user)
-})
+passport.serializeUser((user, done) => {
+	done(null, user.id);
+  });
+  
+  passport.deserializeUser(async (id, done) => {
+	try {
+	  const user = await userdb.findById(id);
+	  done(null, user); // Pass the whole user object
+	} catch (err) {
+	  done(err, null);
+	}
+  });
 
-passport.deserializeUser((user,done)=>{
-	done(null,user)
-})
 
-app.get('/auth/google',passport.authenticate("google",{scope:["profile","email"]}))
-app.get('/auth/google/callback',passport.authenticate("google",{
-	successRedirect:"http://localhost:5173/details",
-	failureRedirect:"http://localhost:5173/"
-}))
+app.get('/auth/google',
+  passport.authenticate('google', { scope:
+      [ 'email', 'profile' ] }
+));
+
+app.get( '/auth/google/callback',
+    passport.authenticate( 'google', {
+        successRedirect: "http://localhost:5173/details",
+        failureRedirect: 'http://localhost:5173/'
+}));
+
+app.get("/login/success",async(req,res)=>{
+	console.log("requesttttttttttttttt",req.user)
+	if(req.user){
+		res.status(200).json({message:"User Authenticated",user:req.user})
+	}else{
+		res.status(400).json({message:"User not Authenticated"})
+	}
+})
 
 app.post('/interview', async (req, res) => {
 	const { companyName, position } = req.body;
