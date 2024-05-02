@@ -22,9 +22,25 @@ main {
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
-  background-color: #1e1e24;
+  background-color: #f1f0ff;
   padding: 2rem;
   box-sizing: border-box;
+}
+
+.heading-cont {
+  width: 50vw;
+  text-align: center;
+  font-size: 2.5rem;
+  color: #282c34;
+  background-color: "#cdcbff";
+  margin: 1rem 0 1rem 0;
+}
+
+.innner {
+  background-color: #dddcff;
+  padding: 0 5rem 3rem 5rem;
+  margin-top: 1.6rem;
+  border-radius: 1rem;
 }
 
 main::-webkit-scrollbar {
@@ -32,7 +48,7 @@ main::-webkit-scrollbar {
 }
 
 main::-webkit-scrollbar-track {
-  background: #1e1e24;
+  background: #f1f0ff;
 }
 
 main::-webkit-scrollbar-thumb {
@@ -47,15 +63,15 @@ main::-webkit-scrollbar-thumb {
 
 .formContainer button {
   width: 20%;
-  background-color: rgb(63, 63, 255);
+  background-color: rgb(77, 77, 255);
 }
 
 input {
   line-height: 1.5;
   width: 100%;
-  font-size: 1.5rem;
-  background: rgb(58, 58, 58);
-  color: white;
+  font-size: 1.2rem;
+  background: #fff;
+  color: black;
   outline: none;
   border: none;
   padding: 0 10px;
@@ -107,12 +123,14 @@ p {
 
 .sent p {
   color: white;
-  background: #0b93f6;
+  background: #6649b8;
   align-self: flex-end;
+  padding: 1rem 1.5rem;
 }
 .received p {
-  background: #e5e5ea;
+  background: #cdcbff;
   color: black;
+  padding: 1rem 1.5rem;
 }
 
 img {
@@ -124,4 +142,11 @@ img {
 
 .text {
   color: black;
+}
+
+.btn {
+  border-radius: 0;
+  font-size: 1.1rem;
+  padding: 1rem 0;
+  font-weight: 400;
 }
