@@ -1,0 +1,40 @@
+
+.report-container {
+    width: 100vw;
+    height: 100vh;
+    margin: 20px;
+    overflow: hidden;
+    background-color: white;
+}
+
+
+.report-container h1{
+    text-align: center;
+    margin-left: 15rem;
+}
+
+.h11{
+    margin-left: 5rem;
+}
+.h21{
+    margin-left: 5rem;
+}
+.section {
+    margin-bottom: 40px;
+    margin-left: 70px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
