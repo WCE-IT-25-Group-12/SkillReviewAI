@@ -6,9 +6,14 @@ import "regenerator-runtime/runtime";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
+import { useNavigate } from 'react-router-dom';
 
 const Chat = ({ questions }) => {
   let initialText = questions.companyInfo;
+  const navigate=useNavigate();
+  const handleReport = () => { 
+    navigate('/report');
+  }
   // console.log(questions);
   const {
     transcript,
@@ -133,6 +138,7 @@ const Chat = ({ questions }) => {
             {">"}
           </button>
         </form>
+        <button className="end" onClick={handleReport}>End Interview</button>
       </div>
     </div>
   );

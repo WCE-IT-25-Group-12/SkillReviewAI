@@ -2,7 +2,7 @@
 .report-container {
     width: 100vw;
     height: 100vh;
-    margin: 20px;
+    margin: 0;
     overflow: hidden;
     background-color: white;
 }
