@@ -1,0 +1,52 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import url(https://fonts.googleapis.com/css?family=Poppins:300);
+
+body {
+  background-image: url(../../assets/bg.png);
+  /* background: linear-gradient(to right, #f1f0ff 70%, #dadbf1 30%); */
+  color: black;
+  justify-content: center;
+  overflow: hidden;
+  
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  width: 25vw;
+  height: 45vh;
+  padding: 1rem;
+  text-align: start;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.details input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  color: #000;
+  width: 100%;
+  border: 0;
+  margin: 0 0 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  border-radius: 0.8rem;
+  font-size: 14px;
+}
+.details button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #6a6cf6;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #ffffff;
+  font-size: 10px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
